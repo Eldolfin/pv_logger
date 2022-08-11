@@ -14,11 +14,20 @@ def main():
     if not path.exists(OUTPUT_FILE):
         with open(OUTPUT_FILE, 'w') as f:
             f.write('time,current_power,total_power\n')
+
+
     while True:
-        current_power, total_power = retrieve_infos()
+        try:
+            current_power, total_power = retrieve_infos()
+        except ValueError:
+            print('Error while retrieving infos')
+            continue
+
         print(f'Current power: {current_power}W, Total power: {total_power}W')
+
         with open(OUTPUT_FILE, 'a') as f:
             f.write(f'{time.time()},{current_power},{total_power}\n')
+
         time.sleep(LOG_INTERVAL)
 
 
