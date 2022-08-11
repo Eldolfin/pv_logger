@@ -5,7 +5,7 @@ from os import path
 from requests.auth import HTTPBasicAuth
 
 
-LOG_INTERVAL = 10  # in seconds
+LOG_INTERVAL = 120  # in seconds
 OUTPUT_FILE = 'output.csv'
 URL = 'http://10.10.46.149/status.html'
 
